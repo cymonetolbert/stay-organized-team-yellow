@@ -1,0 +1,45 @@
+"use strict"
+
+//maybe create object here?
+//fetch all Todo api 
+//POST REQUEST 
+//push new object to allToDos api endpoint
+// show message like "new todo added"
+
+//new object = new todo
+
+
+// function displayUserTasks(event) {
+//     const selectedUserId = event.target.value
+//     fetch(`http://localhost:8081/api/courses/${selectedUserId}`)
+//       .then(response => response.json())
+//       .then(renderTasks)
+// }
+
+// function renderTask(data) {
+//     let html = ""
+//     for (let index = 0; index < data.length; index += 1) {
+//         const todosresult = data[index];
+
+//     }
+//     const  resultDiv = document.getElementById("forecastResults")
+//     resultDiv.innerHTML = html
+// }
+
+function addTodo(userId, newTodoJSON) {
+
+    fetch('http://127.0.0.1:8083/api/todos/byuser/{userId}', {
+            
+        method: 'POST',
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify(newTodoJSON)
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('data')
+      })
+}
