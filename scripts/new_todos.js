@@ -7,8 +7,8 @@ window.onload = function () {
     const usernameSelect = document.querySelector("#username")
     getUsername(usernameSelect)
 
-    const form = document.querySelector("#form")
-    form.onsubmit = getInputs
+    // const form = document.querySelector("#form")
+    // form.onsubmit = getInputs
 
     const prioritySelect = document.querySelector("#priority")
     populatePriority(prioritySelect)
@@ -55,7 +55,6 @@ function populatePriority (priority, element) {
 
 function getInputs(event) {
     event.preventDefault()
-    let values = []
     let formElements = event.target.elements
     console.log(formElements)
 
@@ -63,12 +62,17 @@ function getInputs(event) {
     let selectedCategory = formElements.category.value
     let typedDescription = formElements.description.value
     let chosenDate = formElements.date.value
-    console.log(typedDescription, typedUsername, selectedCategory, chosenDate)
+    let selectedPriority = formElements.priority.value
+    // console.log(typedDescription, typedUsername, selectedCategory, chosenDate)
 
-    const newTodoJSON = JSON.stringify({
-        username: typedUsername,
+    const newTodoJSON = ({
+        id: 5,
+        userid: typedUsername,
         category: selectedCategory,
-        completed: false,
+        description: typedDescription,
+        deadline: chosenDate,
+        priority: selectedPriority,
+        completed: "false"
     })
-    console.log(values)
+    return addTodo(typedUsername, newTodoJSON)
 }
