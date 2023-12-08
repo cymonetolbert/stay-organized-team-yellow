@@ -26,20 +26,41 @@
 //     resultDiv.innerHTML = html
 // }
 
-function addTodo(userId, newTodoJSON) {
+// function addTodo(userId, newTodoJSON) {
 
-    fetch('http://127.0.0.1:8083/api/todos/byuser/{userId}', {
+//     fetch(`http://127.0.0.1:8083/api/todos/byuser/${userId}`, {
             
-        method: 'POST',
+//         method: 'POST',
 
-        headers: {
-            "Content-Type": "application/json"
-        },
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
 
-        body: JSON.stringify(newTodoJSON)
-    })
+//         body: JSON.stringify(newTodoJSON)
+//     })
+//       .then(response => response.json())
+//       .then(data => {
+//         console.log(data)
+//       })
+// }
+
+function addTodo (newTodoJSON) {
+  const requestOptions = {
+      method: 'POST',
+      headers: {
+          "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newTodoJSON),
+  };
+
+  return fetch(`http://127.0.0.1:8083/api/todos`, requestOptions)
       .then(response => response.json())
       .then(data => {
-        console.log('data')
-      })
+          showSuccessMessage(data)})
+}
+
+function showSuccessMessage (_data) {
+  let html = `<h1>TODO SUCCESSFULLY ADDED</h1>`
+  const div = document.querySelector("#message")
+  div.innerHTML = html
 }

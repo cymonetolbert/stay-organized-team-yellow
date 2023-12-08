@@ -11,6 +11,8 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
         <script src="/scripts/new_todos.js"></script>
+        <script src="/scripts/new_todo_push"></script>
+        <script src="/scripts/new_todo_data.js"></script>
 </head>
 
 <body>
@@ -33,8 +35,8 @@
         </nav>
     </header>
     <main>
-            <select name="username" class="form-control" id="username"></select>
         <form id="form">
+            <select name="username" class="form-control" id="username"></select>
             <!-- <input id="username" type="text" class="form-control" placeholder="Username" aria-label="Username"> -->
             <select name="category" class="form-control" id="category"></select>
             <input id="description" type="text" class="form-control" placeholder="Description" aria-label="Description">
@@ -42,6 +44,7 @@
             <select name="priority" class="form-control" id="priority"></select>
             <button class="form-control" type="submit">Submit</button>
         </form>
+        <div id="message"></div>
     </main>
     <footer></footer>
     

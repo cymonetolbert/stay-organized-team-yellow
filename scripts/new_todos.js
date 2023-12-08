@@ -7,11 +7,11 @@ window.onload = function () {
     const usernameSelect = document.querySelector("#username")
     getUsername(usernameSelect)
 
-    // const form = document.querySelector("#form")
-    // form.onsubmit = getInputs
+    const form = document.querySelector("#form")
+    form.onsubmit = getInputs
 
     const prioritySelect = document.querySelector("#priority")
-    populatePriority(prioritySelect)
+    populatePriority(priority, prioritySelect)
 
 }
 
@@ -72,7 +72,7 @@ function getInputs(event) {
         description: typedDescription,
         deadline: chosenDate,
         priority: selectedPriority,
-        completed: "false"
     })
-    return addTodo(typedUsername, newTodoJSON)
+    
+    return addTodo(newTodoJSON)
 }
